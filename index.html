@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC-AI | Stop Losing $20,000/Month to Missed Leads</title>
+<style>
+:root{
+  --black:#060810;--navy:#080d1a;--orange:#f97316;--og:rgba(249,115,22,0.3);
+  --teal:#0adbbe;--red:#ef4444;--green:#22c55e;--gold:#f59e0b;
+  --white:#f1f5f9;--muted:#64748b;--card:#0c1120;--border:rgba(249,115,22,0.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;overflow-x:hidden;line-height:1.6;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(249,115,22,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.02) 1px,transparent 1px);background-size:70px 70px;pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:900;padding:16px 36px;display:flex;justify-content:space-between;align-items:center;background:rgba(6,8,16,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(14px);}
+.logo-name{font-size:1.1rem;font-weight:900;color:var(--orange);letter-spacing:.06em;}
+.logo-name span{color:#fff;}
+.logo-sub{font-size:.58rem;color:var(--muted);letter-spacing:.1em;display:block;}
+.nav-btn{background:var(--orange);color:#000;font-weight:800;font-size:.8rem;padding:10px 22px;border-radius:5px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:all .25s;}
+.nav-btn:hover{background:#fff;box-shadow:0 0 30px var(--og);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 24px 80px;position:relative;overflow:hidden;}
+#hero-c{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.hero-in{position:relative;z-index:1;max-width:980px;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.08);border:1px solid var(--border);border-radius:4px;padding:6px 16px;font-size:.72rem;font-weight:700;color:var(--orange);margin-bottom:28px;letter-spacing:.12em;text-transform:uppercase;}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:bk 2s infinite;}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.2}}
+h1{font-size:clamp(2.2rem,5.5vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:24px;}
+h1 .money{color:var(--orange);text-shadow:0 0 60px rgba(249,115,22,.45);}
+h1 .fix{color:var(--teal);}
+.hsub{font-size:clamp(1rem,1.8vw,1.18rem);color:var(--muted);max-width:620px;margin:0 auto 44px;line-height:1.75;}
+.hsub strong{color:#fff;}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:52px;}
+.b1{background:var(--orange);color:#000;font-weight:800;font-size:.98rem;padding:16px 36px;border-radius:6px;text-decoration:none;box-shadow:0 0 40px rgba(249,115,22,.3);transition:all .3s;}
+.b1:hover{transform:translateY(-3px);background:#fff;}
+.b2{background:transparent;color:#fff;font-weight:600;font-size:.98rem;padding:16px 30px;border-radius:6px;border:1px solid rgba(255,255,255,.15);text-decoration:none;transition:all .3s;}
+.b2:hover{border-color:var(--orange);color:var(--orange);}
+
+/* ROI STRIP */
+.roi-strip{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:820px;margin:0 auto;}
+.ri{flex:1;padding:18px 16px;text-align:center;border-right:1px solid var(--border);}
+.ri:last-child{border-right:none;}
+.rn{font-size:1.9rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:5px;}
+.rl{font-size:.73rem;color:var(--muted);line-height:1.4;}
+
+/* SECTIONS */
+section{padding:88px 24px;position:relative;z-index:1;}
+.inner{max-width:1100px;margin:0 auto;}
+.stag{font-size:.7rem;font-weight:700;color:var(--orange);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;}
+.stitle{font-size:clamp(1.8rem,3.3vw,2.9rem);font-weight:900;line-height:1.12;letter-spacing:-.025em;margin-bottom:14px;}
+.ssub{color:var(--muted);font-size:.98rem;max-width:580px;margin-bottom:48px;}
+.bg-navy{background:var(--navy);}
+
+/* LEAK CARDS */
+.lgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px;}
+.lcard{background:var(--card);border:1px solid rgba(239,68,68,.18);border-radius:12px;padding:26px;transition:all .35s;position:relative;overflow:hidden;}
+.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),transparent);}
+.lcard:hover{transform:translateY(-6px);border-color:rgba(239,68,68,.4);box-shadow:0 20px 50px rgba(239,68,68,.08);}
+.li{font-size:1.8rem;margin-bottom:14px;display:block;}
+.lcard h3{font-size:.95rem;font-weight:800;margin-bottom:8px;}
+.lcard p{color:var(--muted);font-size:.86rem;line-height:1.65;}
+.lcost{display:inline-block;margin-top:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--red);font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:4px;}
+
+/* ROI TABLE */
+.tw{overflow-x:auto;margin-top:44px;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;}
+thead th{padding:13px 14px;text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);}
+thead th:nth-child(3){color:var(--teal);}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.04);}
+tbody tr:hover{background:rgba(249,115,22,.03);}
+tbody td{padding:15px 14px;vertical-align:middle;}
+tbody td:first-child{font-weight:700;}
+tbody td:nth-child(2){color:var(--red);}
+tbody td:nth-child(3){color:var(--green);font-weight:600;}
+tbody td:nth-child(4){color:var(--orange);font-weight:700;}
+tfoot tr{background:rgba(249,115,22,.06);border-top:2px solid var(--orange);}
+tfoot td{padding:16px 14px;font-weight:900;}
+tfoot td:nth-child(2){color:var(--red);font-size:1.05rem;}
+tfoot td:nth-child(3){color:var(--green);font-size:1.05rem;}
+tfoot td:nth-child(4){color:var(--gold);font-size:1.15rem;}
+
+/* 3D FLOW SYSTEMS */
+.systems{padding:0 0 88px;}
+.sys-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;max-width:1100px;margin:0 auto 0;}
+.sys-tab{padding:16px 28px;font-size:.82rem;font-weight:700;color:var(--muted);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;white-space:nowrap;transition:all .25s;letter-spacing:.04em;text-transform:uppercase;}
+.sys-tab:hover{color:#fff;}
+.sys-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.sys-panel{display:none;max-width:1100px;margin:0 auto;padding:44px 24px 0;}
+.sys-panel.active{display:block;}
+.sys-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:44px;align-items:center;}
+.sys-header-text h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;letter-spacing:-.02em;margin-bottom:12px;}
+.sys-header-text p{color:var(--muted);font-size:.95rem;line-height:1.7;}
+.sys-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sm{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}
+.smn{font-size:1.8rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:4px;}
+.sml{font-size:.73rem;color:var(--muted);}
+
+/* 3D Canvas */
+.flow-canvas-wrap{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:20px;position:relative;overflow:hidden;
+}
+.flow-canvas-wrap canvas{width:100%;height:420px;display:block;cursor:pointer;}
+.flow-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
+.fl-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);}
+.fl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.canvas-tip{position:absolute;top:16px;right:16px;font-size:.72rem;color:var(--muted);background:rgba(0,0,0,.5);padding:4px 10px;border-radius:20px;}
+.node-info-box{
+  background:var(--navy);border:1px solid var(--orange);border-radius:10px;
+  padding:16px 20px;margin-top:16px;min-height:70px;
+  font-size:.88rem;color:var(--white);line-height:1.6;
+  transition:all .3s;
+}
+.node-info-box strong{color:var(--orange);}
+
+/* PILOT CTA */
+.pilot{background:var(--navy);text-align:center;padding:90px 24px;position:relative;overflow:hidden;}
+.pilot::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(circle,rgba(249,115,22,.1),transparent 70%);pointer-events:none;}
+.pilot h2{font-size:clamp(1.9rem,4.5vw,3.5rem);font-weight:900;letter-spacing:-.025em;margin-bottom:20px;position:relative;}
+.pilot p{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 44px;line-height:1.7;}
+.guarantee{margin-top:20px;font-size:.78rem;color:var(--muted);}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto 48px;}
+.tier{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:left;transition:all .3s;}
+.tier:hover{border-color:var(--orange);transform:translateY(-4px);}
+.tier.featured{border-color:var(--orange);background:rgba(249,115,22,.05);}
+.tier-label{font-size:.68rem;font-weight:700;color:var(--orange);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+.tier-price{font-size:2rem;font-weight:900;color:#fff;margin-bottom:4px;line-height:1;}
+.tier-price span{font-size:.85rem;color:var(--muted);font-weight:400;}
+.tier-name{font-size:.9rem;font-weight:700;margin-bottom:14px;color:var(--orange);}
+.tier-features{list-style:none;}
+.tier-features li{font-size:.82rem;color:var(--muted);padding:5px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.tier-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--muted);font-size:.78rem;position:relative;z-index:1;}
+footer a{color:var(--orange);text-decoration:none;}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;}
+.rv.vis{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  nav{padding:14px 18px;}
+  .roi-strip{flex-wrap:wrap;}
+  .ri{min-width:50%;border-bottom:1px solid var(--border);}
+  .sys-header{grid-template-columns:1fr;}
+  .tier-grid{grid-template-columns:1fr;}
+  .flow-canvas-wrap canvas{height:300px;}
+}
+@media(max-width:500px){
+  .ri{min-width:100%;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <div class="logo-name">HVAC<span>-AI</span></div>
+    <div class="logo-sub">by ALJOAI &nbsp;·&nbsp; AI Revenue Recovery</div>
+  </div>
+  <a href="#audit" class="nav-btn">Book Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-c"></canvas>
+  <div class="hero-in">
+    <div class="badge"><span class="bdot"></span>AI Revenue Recovery Specialists — HVAC & Home Services</div>
+    <h1>You Are Losing<br><span class="money">$20,000 Every Month</span><br>To Missed Calls.<br><span class="fix">We Fix That.</span></h1>
+    <p class="hsub"><strong>The first company to respond wins the job.</strong> Your phones go to voicemail after hours. Your forms sit unanswered. Your quotes go cold. Our AI fixes all three — automatically — 24 hours a day.</p>
+    <div class="hbtns">
+      <a href="#audit" class="b1">Get My Free Revenue Audit →</a>
+      <a href="#systems" class="b2">See How It Works</a>
+    </div>
+    <div class="roi-strip">
+      <div class="ri"><div class="rn">58s</div><div class="rl">AI response time<br>any hour, any day</div></div>
+      <div class="ri"><div class="rn">95%</div><div class="rl">missed call<br>recovery rate</div></div>
+      <div class="ri"><div class="rn">3×</div><div class="rl">more quotes<br>converted</div></div>
+      <div class="ri"><div class="rn">$0</div><div class="rl">cost until we<br>book your first 3 jobs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE LEAKS -->
+<section class="bg-navy">
+  <div class="inner">
+    <div class="rv"><div class="stag">Where Your Money Is Going</div>
+    <h2 class="stitle">Four Holes In Your Revenue Bucket</h2>
+    <p class="ssub">Every one of these is happening in your business right now. Most owners have no idea.</p></div>
+    <div class="lgrid">
+      <div class="lcard rv"><span class="li">📞</span><h3>The After-Hours Black Hole</h3><p>AC breaks at 9PM on a Friday. Homeowner calls. Voicemail. They call the next company. That company answers in 3 minutes. You lose a $3,000 job before Saturday morning.</p><span class="lcost">Avg: $8,000–$15,000/month lost</span></div>
+      <div class="lcard rv"><span class="li">📋</span><h3>Dead Quote Graveyard</h3><p>You send 25 quotes a week. You follow up on 6. The other 19 sit unanswered. Some of those people still need the work. They just booked someone who called them back first.</p><span class="lcost">Avg: 30–40% of quotes abandoned</span></div>
+      <div class="lcard rv"><span class="li">💸</span><h3>Unpaid Invoice Pile</h3><p>Work is done. Invoice sent. Payment ignored. You chase it manually — or you forget. Every week the pile grows and your cash flow tightens while you keep spending on new leads.</p><span class="lcost">Avg: $5,000–$12,000 outstanding</span></div>
+      <div class="lcard rv"><span class="li">📣</span><h3>Ad Spend With No Follow-Up</h3><p>You pay for Google Ads. Leads come in. Nobody follows up within 5 minutes. Research shows response after 5 minutes drops conversion by 80%. You just paid for leads you gave away.</p><span class="lcost">Avg: 60–70% of ad leads wasted</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI TABLE -->
+<section>
+  <div class="inner">
+    <div class="rv"><div class="stag">The Numbers</div>
+    <h2 class="stitle">The Cost Of Inaction — Every Month</h2>
+    <p class="ssub">Conservative estimates based on industry data for a typical HVAC company doing $500K–$2M/year.</p></div>
+    <div class="tw rv">
+      <table>
+        <thead><tr><th>Revenue Leak</th><th>Without AI System</th><th>With AI System</th><th>Monthly Recovery</th></tr></thead>
+        <tbody>
+          <tr><td>Missed after-hours calls</td><td>$8,000–$15,000 lost</td><td>95% captured automatically</td><td>+$7,600–$14,250</td></tr>
+          <tr><td>Unanswered web forms</td><td>60–70% ignored</td><td>100% responded to in 58 sec</td><td>+$3,000–$8,000</td></tr>
+          <tr><td>Dead quotes (no follow-up)</td><td>30–40% abandoned</td><td>Auto follow-up Day 3, 7, 14</td><td>+$4,000–$9,000</td></tr>
+          <tr><td>Unpaid invoices (no chase)</td><td>$5K–$12K outstanding</td><td>Automated chase sequence</td><td>+$3,000–$7,000</td></tr>
+          <tr><td>Ad leads (slow response)</td><td>80% lost after 5 min</td><td>AI responds in 58 seconds</td><td>+$4,000–$10,000</td></tr>
+        </tbody>
+        <tfoot><tr><td><strong>TOTAL MONTHLY RECOVERY</strong></td><td>$0 recovered</td><td>Everything recovered</td><td>$21,600–$48,250</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 3D INTERACTIVE SYSTEMS -->
+<section id="systems" class="systems bg-navy">
+  <div style="padding:88px 0 0;max-width:1100px;margin:0 auto;padding-left:24px;padding-right:24px;">
+    <div class="rv"><div class="stag">How It Works</div>
+    <h2 class="stitle">Three Systems. One Revenue Engine.</h2>
+    <p class="ssub" style="margin-bottom:32px;">Click any node in the diagrams below to understand exactly how each system works and what it delivers for your business.</p></div>
+  </div>
+  <div class="sys-tabs">
+    <button class="sys-tab active" onclick="switchTab('leads',this)">🎯 Lead Management</button>
+    <button class="sys-tab" onclick="switchTab('ads',this)">📣 Ads & Lead Gen</button>
+    <button class="sys-tab" onclick="switchTab('quotes',this)">💰 Quotes & Invoices</button>
+  </div>
+
+  <!-- LEAD MANAGEMENT -->
+  <div class="sys-panel active" id="panel-leads">
+    <div class="sys-header rv">
+      <div class="sys-header-text">
+        <h2>Lead Management System</h2>
+        <p>Every lead that touches your business — web forms, phone calls, social messages — gets captured, qualified, and booked automatically. Nothing slips through. Ever.</p>
+      </div>
+      <div class="sys-metrics">
+        <div class="sm"><div class="smn">58s</div><div class="sml">Response time</div></div>
+        <div class="sm"><div class="smn">95%</div><div class="sml">Recovery rate</div></div>
+        <div class="sm"><div class="smn">24/7</div><div class="sml">Always on</div></div>
+        <div class="sm"><div class="smn">14d</div><div class="sml">Nurture window</div></div>
+      </div>
+    </div>
+    <div class="flow-canvas-wrap rv">
+      <span class="canvas-tip">👆 Click any node to learn more</span>
+      <canvas id="c-leads" width="1060" height="420"></canvas>
+      <div class="flow-legend">
+        <div class="fl-item"><div class="fl-dot" style="background:#f97316"></div>Entry triggers</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#0adbbe"></div>AI processing</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#22c55e"></div>Revenue outcomes</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#f59e0b"></div>Nurture sequences</div>
+      </div>
+      <div class="node-info-box" id="info-leads">👆 <strong>Click any node</strong> in the diagram above to see exactly what happens at each stage of the lead management process.</div>
+    </div>
+  </div>
+
+  <!-- ADS -->
+  <div class="sys-panel" id="panel-ads">
+    <div class="sys-header rv">
+      <div class="sys-header-text">
+        <h2>Ads & Lead Generation System</h2>
+        <p>You pay for ads. We make sure every single lead that comes from those ads is captured, followed up within 58 seconds, and tracked to ROI. No more wasted ad spend.</p>
+      </div>
+      <div class="sys-metrics">
+        <div class="sm"><div class="smn">3×</div><div class="sml">Ad conversion lift</div></div>
+        <div class="sm"><div class="smn">80%</div><div class="sml">Leads lost without fast response</div></div>
+        <div class="sm"><div class="smn">$0</div><div class="sml">Wasted after setup</div></div>
+        <div class="sm"><div class="smn">ROI</div><div class="sml">Full attribution tracking</div></div>
+      </div>
+    </div>
+    <div class="flow-canvas-wrap rv">
+      <span class="canvas-tip">👆 Click any node to learn more</span>
+      <canvas id="c-ads" width="1060" height="420"></canvas>
+      <div class="flow-legend">
+        <div class="fl-item"><div class="fl-dot" style="background:#f97316"></div>Ad channels</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#0adbbe"></div>AI qualification</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#22c55e"></div>Booked jobs</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#8b5cf6"></div>Retargeting</div>
+      </div>
+      <div class="node-info-box" id="info-ads">👆 <strong>Click any node</strong> to see how your ad spend turns into booked jobs — with full ROI tracking at every step.</div>
+    </div>
+  </div>
+
+  <!-- QUOTES & INVOICES -->
+  <div class="sys-panel" id="panel-quotes">
+    <div class="sys-header rv">
+      <div class="sys-header-text">
+        <h2>Quote & Invoice Recovery System</h2>
+        <p>Stop leaving money on the table. Every quote you send gets automatically followed up. Every invoice gets chased. This is pure recovered profit — from work you already did.</p>
+      </div>
+      <div class="sys-metrics">
+        <div class="sm"><div class="smn">+35%</div><div class="sml">Quote conversion</div></div>
+        <div class="sm"><div class="smn">14d</div><div class="sml">Follow-up window</div></div>
+        <div class="sm"><div class="smn">Auto</div><div class="sml">Zero manual work</div></div>
+        <div class="sm"><div class="smn">$$$</div><div class="sml">Pure recovered profit</div></div>
+      </div>
+    </div>
+    <div class="flow-canvas-wrap rv">
+      <span class="canvas-tip">👆 Click any node to learn more</span>
+      <canvas id="c-quotes" width="1060" height="420"></canvas>
+      <div class="flow-legend">
+        <div class="fl-item"><div class="fl-dot" style="background:#f97316"></div>Quote/invoice sent</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#0adbbe"></div>AI follow-up sequence</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#22c55e"></div>Payment received</div>
+        <div class="fl-item"><div class="fl-dot" style="background:#ef4444"></div>Escalation triggers</div>
+      </div>
+      <div class="node-info-box" id="info-quotes">👆 <strong>Click any node</strong> to understand how the quote and invoice recovery system turns forgotten money into collected revenue.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section id="audit">
+  <div class="inner">
+    <div class="rv" style="text-align:center;margin-bottom:44px;">
+      <div class="stag">Pricing</div>
+      <h2 class="stitle">Three Tiers. All ROI.</h2>
+      <p class="ssub" style="margin:0 auto;">Start with the Safety Net. Add Gasoline when you're ready. Build Total Control when you want to own your market.</p>
+    </div>
+    <div class="tier-grid rv">
+      <div class="tier">
+        <div class="tier-label">Tier 1 — The Safety Net</div>
+        <div class="tier-price">$1,500<span>/month</span></div>
+        <div class="tier-name">Lead Recovery System</div>
+        <ul class="tier-features">
+          <li>Missed call AI text-back in 58 seconds</li>
+          <li>Web form instant response 24/7</li>
+          <li>AI qualification via SMS conversation</li>
+          <li>Auto-booking into your calendar</li>
+          <li>14-day lead nurture sequence</li>
+          <li>Live pipeline dashboard</li>
+          <li>Setup: $2,500 one-time</li>
+        </ul>
+      </div>
+      <div class="tier featured">
+        <div class="tier-label">Tier 2 — The Gasoline</div>
+        <div class="tier-price">$4,500<span>/month</span></div>
+        <div class="tier-name">Lead Recovery + Ads Management</div>
+        <ul class="tier-features">
+          <li>Everything in Tier 1</li>
+          <li>Google Ads management</li>
+          <li>Facebook & Instagram Ads</li>
+          <li>All ad leads into AI pipeline</li>
+          <li>Full ROI attribution dashboard</li>
+          <li>Monthly performance reports</li>
+          <li>Review generation automation</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-label">Tier 3 — Total Control</div>
+        <div class="tier-price">$6,500<span>/month</span></div>
+        <div class="tier-name">Full Revenue Engine</div>
+        <ul class="tier-features">
+          <li>Everything in Tier 1 + 2</li>
+          <li>Quote follow-up automation</li>
+          <li>Invoice chase sequences</li>
+          <li>Unsold quote reactivation</li>
+          <li>Seasonal campaign automation</li>
+          <li>Reputation management</li>
+          <li>Financing offer automation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pilot">
+  <div class="rv" style="position:relative;">
+    <div class="stag" style="text-align:center;margin-bottom:12px;">Zero Risk Pilot Offer</div>
+    <h2>Ready To Stop<br><span style="color:var(--orange)">Losing Jobs?</span></h2>
+    <p>Give us your last 30 days of missed calls and unanswered web forms. We will book 3 appointments in 48 hours — before you pay a single dollar.</p>
+    <a href="YOUR_CALENDLY_LINK_HERE" class="b1" style="display:inline-block;font-size:1rem;padding:18px 44px;margin-bottom:16px;">Book My Free Revenue Audit →</a>
+    <div class="guarantee">🔒 No contract. No risk. 3 booked appointments before you pay — or you owe us nothing.</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 HVAC-AI — A division of <a href="https://aljoai.com">ALJOAI</a> &nbsp;·&nbsp; <a href="mailto:hello@aljoai.com">hello@aljoai.com</a> &nbsp;·&nbsp; Serving Dallas · Houston · Phoenix · Sydney · London</p>
+</footer>
+
+<script>
+/* ── HERO PARTICLES ── */
+(function(){
+  var c=document.getElementById('hero-c'),x=c.getContext('2d'),W,H,p=[];
+  function r(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+  r();window.addEventListener('resize',r);
+  function P(){
+    this.x=Math.random()*W;this.y=Math.random()*H;
+    this.vx=(Math.random()-.5)*.4;this.vy=-(Math.random()*.7+.15);
+    this.r=Math.random()*2+.5;this.a=Math.random()*.5+.1;
+    this.c=Math.random()>.7?'#f97316':Math.random()>.5?'#0adbbe':'#f1f5f9';
+  }
+  P.prototype.u=function(){
+    this.x+=this.vx;this.y+=this.vy;this.a-=.0012;
+    if(this.a<=0||this.y<-10){this.y=H+10;this.x=Math.random()*W;this.a=Math.random()*.5+.1;}
+  };
+  P.prototype.d=function(){
+    x.beginPath();x.arc(this.x,this.y,this.r,0,Math.PI*2);
+    x.fillStyle=this.c;x.globalAlpha=this.a;x.fill();
+  };
+  for(var i=0;i<110;i++)p.push(new P());
+  function loop(){x.clearRect(0,0,W,H);x.globalAlpha=1;p.forEach(function(q){q.u();q.d();});requestAnimationFrame(loop);}
+  loop();
+})();
+
+/* ── 3D FLOW ENGINE ── */
+function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
+  var c = document.getElementById(canvasId);
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var W, H, dpr = window.devicePixelRatio || 1;
+  var hovered = -1, selected = -1;
+  var angle = 0, tilt = 0.18;
+  var pulses = [];
+  var animFrame;
+
+  function resize() {
+    W = c.parentElement.clientWidth - 40;
+    H = 420;
+    c.style.width = W + 'px';
+    c.style.height = H + 'px';
+    c.width = W * dpr;
+    c.height = H * dpr;
+    ctx.scale(dpr, dpr);
+  }
+  resize();
+
+  // Project 3D to 2D isometric
+  function project(x3, y3, z3) {
+    var cosA = Math.cos(angle), sinA = Math.sin(angle);
+    var rx = x3 * cosA - y3 * sinA;
+    var ry = x3 * sinA + y3 * cosA;
+    var sx = W/2 + rx * 1;
+    var sy = H/2 - ry * tilt * 60 - z3 * 28;
+    return {x: sx, y: sy};
+  }
+
+  // Map node layout positions to 3D coords
+  function nodePos(n) {
+    return project(n.x * (W * 0.0045), n.y * (H * 0.004), n.z || 0);
+  }
+
+  // Pulse particles along connections
+  function addPulse(fromIdx, toIdx, col) {
+    pulses.push({from: fromIdx, to: toIdx, t: 0, col: col || '#f97316', speed: 0.008 + Math.random()*0.006});
+  }
+
+  // Auto-generate pulses
+  setInterval(function() {
+    connections.forEach(function(conn) {
+      if(Math.random() > 0.4) addPulse(conn[0], conn[1], conn[2] || '#f97316');
+    });
+  }, 800);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw connection lines
+    connections.forEach(function(conn) {
+      var from = nodePos(nodes[conn[0]]);
+      var to = nodePos(nodes[conn[1]]);
+      ctx.beginPath();
+      ctx.moveTo(from.x, from.y);
+      ctx.lineTo(to.x, to.y);
+      ctx.strokeStyle = conn[2] ? conn[2].replace(')', ', 0.25)').replace('rgb', 'rgba').replace('#', '') : 'rgba(249,115,22,0.2)';
+      // simpler
+      ctx.strokeStyle = 'rgba(249,115,22,0.18)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 8]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Arrow head
+      var dx = to.x - from.x, dy = to.y - from.y;
+      var len = Math.sqrt(dx*dx+dy*dy);
+      if(len < 1) return;
+      var ux = dx/len, uy = dy/len;
+      var ax = to.x - ux*14, ay = to.y - uy*14;
+      ctx.beginPath();
+      ctx.moveTo(ax + uy*5, ay - ux*5);
+      ctx.lineTo(to.x - ux*6, to.y - uy*6);
+      ctx.lineTo(ax - uy*5, ay + ux*5);
+      ctx.fillStyle = 'rgba(249,115,22,0.5)';
+      ctx.fill();
+    });
+
+    // Draw pulses
+    pulses = pulses.filter(function(p) { return p.t < 1; });
+    pulses.forEach(function(p) {
+      p.t += p.speed;
+      var from = nodePos(nodes[p.from]);
+      var to = nodePos(nodes[p.to]);
+      var px = from.x + (to.x - from.x) * p.t;
+      var py = from.y + (to.y - from.y) * p.t;
+      var grd = ctx.createRadialGradient(px, py, 0, px, py, 8);
+      grd.addColorStop(0, p.col);
+      grd.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(px, py, 8, 0, Math.PI*2);
+      ctx.fillStyle = grd;
+      ctx.globalAlpha = 0.8 * (1 - p.t);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+
+    // Draw nodes
+    nodes.forEach(function(n, i) {
+      var pos = nodePos(n);
+      var isHov = hovered === i;
+      var isSel = selected === i;
+      var r = isHov || isSel ? 36 : 30;
+
+      // 3D shadow/base
+      ctx.beginPath();
+      ctx.ellipse(pos.x, pos.y + r * 0.35, r * 0.9, r * 0.22, 0, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(0,0,0,0.3)';
+      ctx.fill();
+
+      // Glow
+      if(isHov || isSel) {
+        var glow = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, r * 1.8);
+        glow.addColorStop(0, n.color + '44');
+        glow.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, r * 1.8, 0, Math.PI*2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+      }
+
+      // Node body — 3D sphere effect
+      var grad = ctx.createRadialGradient(pos.x - r*0.3, pos.y - r*0.3, r*0.1, pos.x, pos.y, r);
+      grad.addColorStop(0, lighten(n.color, 0.4));
+      grad.addColorStop(0.5, n.color);
+      grad.addColorStop(1, darken(n.color, 0.5));
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, r, 0, Math.PI*2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Border
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, r, 0, Math.PI*2);
+      ctx.strokeStyle = isSel ? '#fff' : isHov ? '#fff' : n.color;
+      ctx.lineWidth = isSel ? 3 : isHov ? 2 : 1.5;
+      ctx.stroke();
+
+      // Shine highlight
+      ctx.beginPath();
+      ctx.arc(pos.x - r*0.28, pos.y - r*0.28, r*0.3, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.18)';
+      ctx.fill();
+
+      // Icon
+      ctx.fillStyle = '#fff';
+      ctx.font = (isHov||isSel ? '18px' : '15px') + ' Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(n.icon, pos.x, pos.y - 5);
+
+      // Label below node
+      ctx.font = 'bold 10px Segoe UI, sans-serif';
+      ctx.fillStyle = isHov||isSel ? '#fff' : '#94a3b8';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      var lines = n.label.split('\n');
+      lines.forEach(function(line, li) {
+        ctx.fillText(line, pos.x, pos.y + r + 6 + li*13);
+      });
+    });
+
+    angle += 0.002;
+    animFrame = requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Mouse interaction
+  c.addEventListener('mousemove', function(e) {
+    var rect = c.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    hovered = -1;
+    nodes.forEach(function(n, i) {
+      var pos = nodePos(n);
+      var dx = mx - pos.x, dy = my - pos.y;
+      if(Math.sqrt(dx*dx+dy*dy) < 36) hovered = i;
+    });
+    c.style.cursor = hovered >= 0 ? 'pointer' : 'default';
+  });
+
+  c.addEventListener('click', function(e) {
+    if(hovered >= 0) {
+      selected = hovered;
+      var info = document.getElementById(infoId);
+      if(info) {
+        info.innerHTML = getInfo(selected);
+        info.style.borderColor = nodes[selected].color;
+      }
+    }
+  });
+
+  c.addEventListener('mouseleave', function() { hovered = -1; });
+}
+
+function lighten(hex, amt) {
+  var r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  r = Math.min(255, r + Math.round(255*amt));
+  g = Math.min(255, g + Math.round(255*amt));
+  b = Math.min(255, b + Math.round(255*amt));
+  return 'rgb('+r+','+g+','+b+')';
+}
+function darken(hex, amt) {
+  var r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  r = Math.max(0, r - Math.round(255*amt));
+  g = Math.max(0, g - Math.round(255*amt));
+  b = Math.max(0, b - Math.round(255*amt));
+  return 'rgb('+r+','+g+','+b+')';
+}
+
+/* ── LEAD MANAGEMENT FLOW ── */
+var leadNodes = [
+  {x:-95, y:20, z:2, color:'#f97316', icon:'📞', label:'Missed\nCall'},
+  {x:-55, y:-30, z:1, color:'#f97316', icon:'📝', label:'Web\nForm'},
+  {x:-15, y:40, z:2, color:'#f97316', icon:'💬', label:'Social\nDM'},
+  {x:25, y:-20, z:1, color:'#f97316', icon:'📣', label:'Ad\nLead'},
+  {x:70, y:10, z:4, color:'#0adbbe', icon:'🤖', label:'AI\nCapture'},
+  {x:105, y:50, z:3, color:'#0adbbe', icon:'🎯', label:'AI\nQualify'},
+  {x:130, y:-10, z:2, color:'#0adbbe', icon:'📅', label:'AI\nBook'},
+  {x:155, y:45, z:1, color:'#f59e0b', icon:'📬', label:'14-Day\nNurture'},
+  {x:170, y:-30, z:3, color:'#22c55e', icon:'✅', label:'Job\nBooked'},
+  {x:185, y:60, z:1, color:'#22c55e', icon:'💰', label:'Revenue\nWon'},
+];
+var leadConns = [
+  [0,4],[1,4],[2,4],[3,4],
+  [4,5],[4,6],
+  [5,6],[5,7],
+  [6,8],[7,8],[7,9],[8,9]
+];
+var leadInfo = [
+  '<strong>📞 Missed Call Trigger</strong><br>Your phone rings after hours. Nobody picks up. Normally this lead is gone forever. With our system the AI detects the missed call and responds via SMS within 58 seconds — before they dial the next number.',
+  '<strong>📝 Web Form Trigger</strong><br>A prospect fills out your contact form at 11pm. Instead of sitting in your inbox until Monday morning, the AI responds instantly with a personalised message and starts a qualification conversation.',
+  '<strong>💬 Social DM Trigger</strong><br>Someone messages your Facebook or Instagram page asking about pricing or availability. The AI picks it up immediately and starts qualifying them — even while you sleep.',
+  '<strong>📣 Ad Lead Trigger</strong><br>A Google or Facebook ad generates a click and form fill. The AI responds within 58 seconds — critical because 80% of leads go cold if you wait more than 5 minutes.',
+  '<strong>🤖 AI Capture Engine</strong><br>All four entry points feed into one central AI engine. It logs every lead, creates a CRM record automatically, and starts the engagement sequence. Zero leads ever slip through.',
+  '<strong>🎯 AI Qualification</strong><br>The AI asks 3 smart questions via SMS: What service do you need? When do you need it? What is your address? This qualifies the lead without you lifting a finger — only real buyers proceed.',
+  '<strong>📅 AI Booking</strong><br>Qualified leads receive a direct booking link. The AI matches their availability to your calendar and confirms the appointment automatically. You wake up to booked jobs.',
+  '<strong>📬 14-Day Nurture</strong><br>Leads that are not ready yet go into a 14-day sequence. Day 1: helpful tip. Day 7: customer testimonial. Day 14: special offer. Most of these leads eventually convert — without you doing anything.',
+  '<strong>✅ Job Booked</strong><br>The appointment lands in your calendar with the customer name, phone number, service needed, and address. Your technician has everything they need before they arrive on site.',
+  '<strong>💰 Revenue Won</strong><br>The job is completed, the invoice is generated, and the customer enters your reputation management sequence — automatically requesting a Google review after the work is done.',
+];
+
+/* ── ADS FLOW ── */
+var adsNodes = [
+  {x:-100, y:30, z:2, color:'#f97316', icon:'🔍', label:'Google\nAds'},
+  {x:-60, y:-20, z:1, color:'#f97316', icon:'📘', label:'Facebook\nAds'},
+  {x:-20, y:40, z:2, color:'#f97316', icon:'📸', label:'Instagram\nAds'},
+  {x:30, y:5, z:4, color:'#0adbbe', icon:'📊', label:'Ad\nDashboard'},
+  {x:70, y:40, z:3, color:'#0adbbe', icon:'🤖', label:'AI\nResponse'},
+  {x:105, y:-10, z:2, color:'#0adbbe', icon:'🎯', label:'Lead\nScore'},
+  {x:135, y:40, z:3, color:'#22c55e', icon:'📅', label:'Booked\nJob'},
+  {x:155, y:-20, z:1, color:'#8b5cf6', icon:'🔁', label:'Retarget\nLost'},
+  {x:175, y:50, z:2, color:'#22c55e', icon:'📈', label:'ROI\nReport'},
+];
+var adsConns = [
+  [0,3],[1,3],[2,3],
+  [3,4],[4,5],
+  [5,6],[5,7],
+  [6,8],[7,4],[6,8]
+];
+var adsInfo = [
+  '<strong>🔍 Google Ads</strong><br>We build and manage your Google Search campaigns targeting high-intent keywords like "AC repair Dallas" and "HVAC emergency near me". These are people actively looking for a technician right now.',
+  '<strong>📘 Facebook Ads</strong><br>Facebook campaigns target homeowners in your service area with seasonal messaging — "Is your AC ready for summer?" — building brand awareness and capturing leads before they need emergency service.',
+  '<strong>📸 Instagram Ads</strong><br>Visual campaigns showing before/after work, customer testimonials, and seasonal promotions. Instagram reaches younger homeowners who will be your customers for the next 20 years.',
+  '<strong>📊 Unified Ad Dashboard</strong><br>Every ad from every platform feeds into one dashboard. You see exactly which ads are generating calls, which are generating forms, and what each lead costs you — in real time.',
+  '<strong>🤖 AI Instant Response</strong><br>Every lead from every ad platform gets an AI response within 58 seconds. This alone triples your conversion rate because 80% of competitors take more than 5 minutes to respond.',
+  '<strong>🎯 Lead Scoring</strong><br>The AI scores every lead by urgency, job size, and location. Emergency AC calls in peak season get priority routing to your on-call technician. Routine maintenance leads go into the standard booking flow.',
+  '<strong>📅 Job Booked</strong><br>High-scoring leads get booked directly. The entire process from ad click to confirmed appointment can happen in under 4 minutes — automatically, with zero manual work from your team.',
+  '<strong>🔁 Retargeting Lost Leads</strong><br>Leads that clicked your ad but did not convert get automatically added to a retargeting audience. We serve them follow-up ads for 30 days — keeping your brand top of mind until they are ready.',
+  '<strong>📈 Full ROI Attribution</strong><br>Every job is tracked back to the exact ad that generated it. You know precisely which campaign is delivering $400 AC tune-ups and which is delivering $4,000 system replacements — and we optimise accordingly.',
+];
+
+/* ── QUOTES & INVOICES FLOW ── */
+var quoteNodes = [
+  {x:-90, y:20, z:2, color:'#f97316', icon:'📋', label:'Quote\nSent'},
+  {x:-45, y:-15, z:1, color:'#f97316', icon:'🧾', label:'Invoice\nSent'},
+  {x:10, y:30, z:3, color:'#0adbbe', icon:'⏱', label:'Day 1\nAuto Follow'},
+  {x:50, y:-10, z:2, color:'#0adbbe', icon:'📬', label:'Day 3\nChase'},
+  {x:90, y:30, z:3, color:'#0adbbe', icon:'📱', label:'Day 7\nSMS Push'},
+  {x:125, y:-15, z:2, color:'#ef4444', icon:'🚨', label:'Day 14\nEscalate'},
+  {x:155, y:35, z:3, color:'#22c55e', icon:'✅', label:'Quote\nAccepted'},
+  {x:175, y:-10, z:2, color:'#22c55e', icon:'💰', label:'Payment\nReceived'},
+  {x:190, y:45, z:1, color:'#22c55e', icon:'⭐', label:'Review\nRequest'},
+];
+var quoteConns = [
+  [0,2],[1,2],
+  [2,3],[3,4],[4,5],
+  [5,6],[5,7],
+  [6,7],[7,8]
+];
+var quotesInfo = [
+  '<strong>📋 Quote Sent</strong><br>The moment you send a quote in your system, our AI logs it and starts a follow-up timer. No more quotes falling through the cracks. Every single one gets tracked from send to close.',
+  '<strong>🧾 Invoice Sent</strong><br>When an invoice is generated and sent, the AI begins monitoring for payment. If payment is not received within your specified window, the automated chase sequence begins automatically.',
+  '<strong>⏱ Day 1 Auto Follow-Up</strong><br>One day after sending, the customer receives a friendly personalised message: "Hi [Name] — just checking you received the quote for your [service]. Happy to answer any questions — shall we go ahead?" Simple. Professional. Automatic.',
+  '<strong>📬 Day 3 Chase</strong><br>No reply? Day 3 sends a different angle: "Hi [Name] — wanted to share that we have availability in your area next week. We would love to get this sorted before the weather turns. Quote still valid." Creates soft urgency.',
+  '<strong>📱 Day 7 SMS Push</strong><br>Still no response? The AI switches channels and sends an SMS — because people read texts faster than emails. "Hi [Name], Lawrence here from [Company]. Your quote expires soon. Reply YES to confirm or call us to adjust anything."',
+  '<strong>🚨 Day 14 Escalation</strong><br>If still no response after 14 days, the AI flags the lead for a personal call from you or your team. At this point it is worth 2 minutes of your time — these are often large jobs where the customer just needs reassurance.',
+  '<strong>✅ Quote Accepted</strong><br>The moment the customer confirms, the job goes straight into your calendar, a deposit request is sent if applicable, and the customer gets a confirmation with your tech details. Frictionless.',
+  '<strong>💰 Payment Received</strong><br>When payment lands, the system logs it, marks the job as complete, updates your pipeline, and triggers the next step. Your cash flow dashboard updates in real time.',
+  '<strong>⭐ Review Request</strong><br>24 hours after payment, the AI sends a personalised review request: "Hi [Name], thank you for trusting us with your [service]. If we did a great job, a quick Google review means the world to us — link below." This compounds your reputation month after month.',
+];
+
+/* ── INIT ALL FLOWS ── */
+setTimeout(function() {
+  Flow3D('c-leads', leadNodes, leadConns, 'info-leads', function(i){ return leadInfo[i] || ''; });
+  Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i] || ''; });
+  Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i] || ''; });
+}, 200);
+
+/* ── TABS ── */
+function switchTab(name, btn) {
+  document.querySelectorAll('.sys-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.sys-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('panel-'+name).classList.add('active');
+  btn.classList.add('active');
+  // Re-init canvas for that panel
+  setTimeout(function() {
+    if(name==='ads') Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i]||''; });
+    if(name==='quotes') Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i]||''; });
+  }, 100);
+}
+
+/* ── SCROLL REVEAL ── */
+var obs = new IntersectionObserver(function(e){
+  e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('vis');obs.unobserve(i.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(function(r){obs.observe(r);});
+</script>
+</body>
+</html>
