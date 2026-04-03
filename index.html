@@ -426,13 +426,17 @@ footer a{color:var(--orange);text-decoration:none;}
   <div style="position:relative;">
     <h2 style="font-size:clamp(1.4rem,3vw,2.4rem);">Still Have Questions?</h2>
     <p style="max-width:480px;">Email us directly and we will get back to you within a few hours.</p>
-    <a href="mailto:support@aljoai.com" class="b1" style="display:inline-block;font-size:.95rem;padding:14px 32px;">support@aljoai.com</a>
+    <a href="/cdn-cgi/l/email-protection#375f525b5b5877565b5d58565e1954585a" class="b1" style="display:inline-block;font-size:.95rem;padding:14px 32px;"><span class="__cf_email__" data-cfemail="543c3138383b1435383e3b353d7a373b39">[email&#160;protected]</span></a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 HVAC-AI — A division of <a href="https://aljoai.com">ALJOAI</a> &nbsp;·&nbsp; <a href="mailto:support@aljoai.com">support@aljoai.com</a> &nbsp;·&nbsp; Serving Dallas · Houston · Phoenix · Sydney · London</p>
+  <p>© 2026 HVAC-AI — A division of <a href="https://aljoai.com">ALJOAI</a> &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#acc4c9c0c0c3eccdc0c6c3cdc582cfc3c1"><span class="__cf_email__" data-cfemail="c1a9a4adadae81a0adabaea0a8efa2aeac">[email&#160;protected]</span></a> &nbsp;·&nbsp; Serving Dallas · Houston · Phoenix · Sydney · London</p>
 </footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
 /* ── HERO PARTICLES ── */
@@ -468,7 +472,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
   var hovered = -1, selected = -1;
   var angle = 0, tilt = 0.18;
   var pulses = [];
-  var animFrame;
 
   function resize() {
     W = c.parentElement.clientWidth - 40;
@@ -498,7 +501,7 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
     pulses.push({from: fromIdx, to: toIdx, t: 0, col: col || '#f97316', speed: 0.008 + Math.random()*0.006});
   }
 
-  var pulseTimer = setInterval(function() {
+  setInterval(function() {
     connections.forEach(function(conn) {
       if(Math.random() > 0.4) addPulse(conn[0], conn[1], conn[2] || '#f97316');
     });
@@ -506,7 +509,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-
     connections.forEach(function(conn) {
       var from = nodePos(nodes[conn[0]]);
       var to = nodePos(nodes[conn[1]]);
@@ -518,7 +520,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       ctx.setLineDash([5, 8]);
       ctx.stroke();
       ctx.setLineDash([]);
-
       var dx = to.x - from.x, dy = to.y - from.y;
       var len = Math.sqrt(dx*dx+dy*dy);
       if(len < 1) return;
@@ -555,12 +556,10 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       var isHov = hovered === i;
       var isSel = selected === i;
       var r = isHov || isSel ? 36 : 30;
-
       ctx.beginPath();
       ctx.ellipse(pos.x, pos.y + r * 0.35, r * 0.9, r * 0.22, 0, 0, Math.PI*2);
       ctx.fillStyle = 'rgba(0,0,0,0.3)';
       ctx.fill();
-
       if(isHov || isSel) {
         var glow = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, r * 1.8);
         glow.addColorStop(0, n.color + '44');
@@ -570,7 +569,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
         ctx.fillStyle = glow;
         ctx.fill();
       }
-
       var grad = ctx.createRadialGradient(pos.x - r*0.3, pos.y - r*0.3, r*0.1, pos.x, pos.y, r);
       grad.addColorStop(0, lighten(n.color, 0.4));
       grad.addColorStop(0.5, n.color);
@@ -579,24 +577,16 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       ctx.arc(pos.x, pos.y, r, 0, Math.PI*2);
       ctx.fillStyle = grad;
       ctx.fill();
-
       ctx.beginPath();
       ctx.arc(pos.x, pos.y, r, 0, Math.PI*2);
       ctx.strokeStyle = isSel ? '#fff' : isHov ? '#fff' : n.color;
       ctx.lineWidth = isSel ? 3 : isHov ? 2 : 1.5;
       ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(pos.x - r*0.28, pos.y - r*0.28, r*0.3, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(255,255,255,0.18)';
-      ctx.fill();
-
       ctx.fillStyle = '#fff';
       ctx.font = (isHov||isSel ? '18px' : '15px') + ' Arial';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(n.icon, pos.x, pos.y - 5);
-
       ctx.font = 'bold 10px Segoe UI, sans-serif';
       ctx.fillStyle = isHov||isSel ? '#fff' : '#94a3b8';
       ctx.textAlign = 'center';
@@ -606,9 +596,8 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
         ctx.fillText(line, pos.x, pos.y + r + 6 + li*13);
       });
     });
-
     angle += 0.002;
-    animFrame = requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
   }
   draw();
 
@@ -634,7 +623,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       }
     }
   });
-
   c.addEventListener('mouseleave', function() { hovered = -1; });
 }
 
@@ -668,16 +656,16 @@ var leadNodes = [
 ];
 var leadConns = [[0,4],[1,4],[2,4],[3,4],[4,5],[4,6],[5,6],[5,7],[6,8],[7,8],[7,9],[8,9]];
 var leadInfo = [
-  '<strong>📞 Missed Call Trigger</strong><br>Your phone rings after hours. AI detects it and responds via SMS within 58 seconds.',
-  '<strong>📝 Web Form Trigger</strong><br>Late-night form fills get instant AI engagement instead of sitting until Monday.',
-  '<strong>💬 Social DM Trigger</strong><br>AI monitors Facebook/Instagram DMs to qualify prospects instantly.',
-  '<strong>📣 Ad Lead Trigger</strong><br>AI captures ad leads within 60 seconds, stopping them from calling competitors.',
-  '<strong>🤖 AI Capture Engine</strong><br>Central hub that logs every lead into your CRM automatically.',
-  '<strong>🎯 AI Qualification</strong><br>AI asks smart questions via SMS to filter real buyers from tire-kickers.',
-  '<strong>📅 AI Booking</strong><br>Qualified leads get a link to your calendar for instant appointment booking.',
-  '<strong>📬 14-Day Nurture</strong><br>Automated follow-up sequence for leads not yet ready to commit.',
-  '<strong>✅ Job Booked</strong><br>Technicians receive job details automatically in their schedule.',
-  '<strong>💰 Revenue Won</strong><br>Job completion triggers payment tracking and automated review requests.',
+  '<strong>📞 Missed Call Trigger</strong><br>Your phone rings after hours. Normally this lead is gone. With our system, AI responds via SMS within 58 seconds.',
+  '<strong>📝 Web Form Trigger</strong><br>A prospect fills out your form at 11pm. AI responds instantly instead of waiting until Monday.',
+  '<strong>💬 Social DM Trigger</strong><br>AI qualifications start immediately from Facebook or Instagram messages.',
+  '<strong>📣 Ad Lead Trigger</strong><br>AI responds to Google/Facebook ads within 58 seconds to maintain conversion.',
+  '<strong>🤖 AI Capture Engine</strong><br>Central hub logging every lead into your CRM automatically.',
+  '<strong>🎯 AI Qualification</strong><br>AI asks smart qualification questions via SMS without manual work.',
+  '<strong>📅 AI Booking</strong><br>Qualified leads are matched to your availability and booked automatically.',
+  '<strong>📬 14-Day Nurture</strong><br>Nurture sequence for leads not ready to book immediately.',
+  '<strong>✅ Job Booked</strong><br>Appointments land in your calendar with full customer details.',
+  '<strong>💰 Revenue Won</strong><br>Job completed, invoice sent, and Google review requested automatically.',
 ];
 
 var adsNodes = [
@@ -693,15 +681,15 @@ var adsNodes = [
 ];
 var adsConns = [[0,3],[1,3],[2,3],[3,4],[4,5],[5,6],[5,7],[6,8],[7,4]];
 var adsInfo = [
-  '<strong>🔍 Google Ads</strong><br>Targeting high-intent search terms for emergency HVAC services.',
-  '<strong>📘 Facebook Ads</strong><br>Awareness campaigns targeting homeowners in your specific area.',
-  '<strong>📸 Instagram Ads</strong><br>Visual campaigns showing results and trust-building testimonials.',
-  '<strong>📊 Ad Dashboard</strong><br>Live view of which ads are actually turning into dollars.',
-  '<strong>🤖 AI Response</strong><br>Triples conversion by responding to every ad lead in under 60 seconds.',
-  '<strong>🎯 Lead Scoring</strong><br>Prioritises emergency installs over routine maintenance calls.',
-  '<strong>📅 Job Booked</strong><br>Automated flow from ad click to confirmed appointment.',
-  '<strong>🔁 Retargeting</strong><br>Automatically following up with prospects who didn\'t book the first time.',
-  '<strong>📈 ROI Report</strong><br>Know exactly which ad generated which system replacement.',
+  '<strong>🔍 Google Ads</strong><br>High-intent targeting for people looking for technicians right now.',
+  '<strong>📘 Facebook Ads</strong><br>Seasonal messaging targeting local homeowners.',
+  '<strong>📸 Instagram Ads</strong><br>Visual campaigns and testimonials to build brand trust.',
+  '<strong>📊 Unified Ad Dashboard</strong><br>Real-time tracking of lead volume and cost from all platforms.',
+  '<strong>🤖 AI Instant Response</strong><br>Response within 58 seconds to triple conversion rates.',
+  '<strong>🎯 Lead Scoring</strong><br>AI identifies urgency and routes priority leads accordingly.',
+  '<strong>📅 Job Booked</strong><br>Automatic booking from ad click to appointment in under 4 minutes.',
+  '<strong>🔁 Retargeting</strong><br>Follow-up ads for 30 days to keep your brand top of mind.',
+  '<strong>📈 Full ROI Attribution</strong><br>Track every job back to the specific ad campaign that created it.',
 ];
 
 var quoteNodes = [
@@ -717,40 +705,29 @@ var quoteNodes = [
 ];
 var quoteConns = [[0,2],[1,2],[2,3],[3,4],[4,5],[5,6],[5,7],[6,7],[7,8]];
 var quotesInfo = [
-  '<strong>📋 Quote Sent</strong><br>System logs the quote and starts the automated follow-up timer.',
-  '<strong>🧾 Invoice Sent</strong><br>Automatically monitors payment status to trigger chase sequences.',
-  '<strong>⏱ Day 1 Follow-Up</strong><br>Friendly personalised nudge to confirm they received the quote.',
-  '<strong>📬 Day 3 Chase</strong><br>Soft urgency follow-up mentioning current schedule availability.',
-  '<strong>📱 Day 7 SMS</strong><br>High-visibility text message to recover potentially lost quotes.',
-  '<strong>🚨 Day 14 Alert</strong><br>Flags large unsold quotes for a manual call from your team.',
-  '<strong>✅ Accepted</strong><br>Triggers job scheduling and deposit collection automatically.',
-  '<strong>💰 Payment</strong><br>Real-time cash flow update once the customer pays via the link.',
-  '<strong>⭐ Review</strong><br>Automated request for a Google review 24h after job completion.',
+  '<strong>📋 Quote Sent</strong><br>Automatic follow-up timer begins as soon as a quote is sent.',
+  '<strong>🧾 Invoice Sent</strong><br>AI monitors for payment and triggers chase sequences if needed.',
+  '<strong>⏱ Day 1 Follow-Up</strong><br>Professional reminder to check if the quote was received.',
+  '<strong>📬 Day 3 Chase</strong><br>Follow-up focusing on availability and urgency.',
+  '<strong>📱 Day 7 SMS Push</strong><br>Channel switch to SMS for higher visibility.',
+  '<strong>🚨 Day 14 Escalation</strong><br>Flags large jobs for a personal follow-up call.',
+  '<strong>✅ Quote Accepted</strong><br>Frictionless entry into your calendar and deposit request.',
+  '<strong>💰 Payment Received</strong><br>Cash flow dashboard updates and marks the job complete.',
+  '<strong>⭐ Review Request</strong><br>Automatic Google review request 24 hours after payment.',
 ];
 
-/* ── INIT ALL FLOWS ── */
+/* ── INIT & TABS ── */
 setTimeout(function() {
-  Flow3D('c-leads', leadNodes, leadConns, 'info-leads', function(i){ return leadInfo[i] || ''; });
-  Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i] || ''; });
-  Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i] || ''; });
+  Flow3D('c-leads', leadNodes, leadConns, 'info-leads', function(i){ return leadInfo[i]; });
+  Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i]; });
+  Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i]; });
 }, 200);
 
-/* ── TABS ── */
 function switchTab(name, btn) {
   document.querySelectorAll('.sys-panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.sys-tab').forEach(function(t){t.classList.remove('active');});
-  document.getElementById('panel-' + name).classList.add('active');
+  document.getElementById('panel-'+name).classList.add('active');
   btn.classList.add('active');
-  
-  setTimeout(function() {
-    if(name === 'leads') {
-        Flow3D('c-leads', leadNodes, leadConns, 'info-leads', function(i){ return leadInfo[i]; });
-    } else if(name === 'ads') {
-        Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i]; });
-    } else if(name === 'quotes') {
-        Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i]; });
-    }
-  }, 50);
 }
 </script>
 </body>
