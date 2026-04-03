@@ -26,7 +26,7 @@ nav{position:fixed;top:0;width:100%;z-index:900;padding:16px 36px;display:flex;j
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 24px 80px;position:relative;overflow:hidden;}
 #hero-c{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
-.hero-in{position:relative;z-index:1;max-width:980px;}
+.hero-in{position:relative;z-index:2;max-width:980px;}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.08);border:1px solid var(--border);border-radius:4px;padding:6px 16px;font-size:.72rem;font-weight:700;color:var(--orange);margin-bottom:28px;letter-spacing:.12em;text-transform:uppercase;}
 .bdot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:bk 2s infinite;}
 @keyframes bk{0%,100%{opacity:1}50%{opacity:.2}}
@@ -139,7 +139,7 @@ tfoot td:nth-child(4){color:var(--gold);font-size:1.15rem;}
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--muted);font-size:.78rem;position:relative;z-index:1;}
 footer a{color:var(--orange);text-decoration:none;}
 
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;}
+.rv{opacity:1;transform:none;transition:opacity .7s,transform .7s;}
 .rv.vis{opacity:1;transform:none;}
 
 @media(max-width:768px){
@@ -165,7 +165,6 @@ footer a{color:var(--orange);text-decoration:none;}
   <a href="#watch" class="nav-btn" style="margin-right:10px;background:transparent;border:1px solid rgba(249,115,22,0.4);color:var(--orange);">▶ Watch Demo</a><a href="#book" class="nav-btn">Book Free Audit →</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <canvas id="hero-c"></canvas>
   <div class="hero-in">
@@ -185,28 +184,26 @@ footer a{color:var(--orange);text-decoration:none;}
   </div>
 </section>
 
-<!-- REVENUE LEAKS -->
 <section class="bg-navy">
   <div class="inner">
-    <div class="rv"><div class="stag">Where Your Money Is Going</div>
+    <div ><div class="stag">Where Your Money Is Going</div>
     <h2 class="stitle">Four Holes In Your Revenue Bucket</h2>
     <p class="ssub">Every one of these is happening in your business right now. Most owners have no idea.</p></div>
     <div class="lgrid">
-      <div class="lcard rv"><span class="li">📞</span><h3>The After-Hours Black Hole</h3><p>AC breaks at 9PM on a Friday. Homeowner calls. Voicemail. They call the next company. That company answers in 3 minutes. You lose a $3,000 job before Saturday morning.</p><span class="lcost">Avg: $8,000–$15,000/month lost</span></div>
-      <div class="lcard rv"><span class="li">📋</span><h3>Dead Quote Graveyard</h3><p>You send 25 quotes a week. You follow up on 6. The other 19 sit unanswered. Some of those people still need the work. They just booked someone who called them back first.</p><span class="lcost">Avg: 30–40% of quotes abandoned</span></div>
-      <div class="lcard rv"><span class="li">💸</span><h3>Unpaid Invoice Pile</h3><p>Work is done. Invoice sent. Payment ignored. You chase it manually — or you forget. Every week the pile grows and your cash flow tightens while you keep spending on new leads.</p><span class="lcost">Avg: $5,000–$12,000 outstanding</span></div>
-      <div class="lcard rv"><span class="li">📣</span><h3>Ad Spend With No Follow-Up</h3><p>You pay for Google Ads. Leads come in. Nobody follows up within 5 minutes. Research shows response after 5 minutes drops conversion by 80%. You just paid for leads you gave away.</p><span class="lcost">Avg: 60–70% of ad leads wasted</span></div>
+      <div class="lcard"><span class="li">📞</span><h3>The After-Hours Black Hole</h3><p>AC breaks at 9PM on a Friday. Homeowner calls. Voicemail. They call the next company. That company answers in 3 minutes. You lose a $3,000 job before Saturday morning.</p><span class="lcost">Avg: $8,000–$15,000/month lost</span></div>
+      <div class="lcard"><span class="li">📋</span><h3>Dead Quote Graveyard</h3><p>You send 25 quotes a week. You follow up on 6. The other 19 sit unanswered. Some of those people still need the work. They just booked someone who called them back first.</p><span class="lcost">Avg: 30–40% of quotes abandoned</span></div>
+      <div class="lcard"><span class="li">💸</span><h3>Unpaid Invoice Pile</h3><p>Work is done. Invoice sent. Payment ignored. You chase it manually — or you forget. Every week the pile grows and your cash flow tightens while you keep spending on new leads.</p><span class="lcost">Avg: $5,000–$12,000 outstanding</span></div>
+      <div class="lcard"><span class="li">📣</span><h3>Ad Spend With No Follow-Up</h3><p>You pay for Google Ads. Leads come in. Nobody follows up within 5 minutes. Research shows response after 5 minutes drops conversion by 80%. You just paid for leads you gave away.</p><span class="lcost">Avg: 60–70% of ad leads wasted</span></div>
     </div>
   </div>
 </section>
 
-<!-- ROI TABLE -->
 <section>
   <div class="inner">
-    <div class="rv"><div class="stag">The Numbers</div>
+    <div ><div class="stag">The Numbers</div>
     <h2 class="stitle">The Cost Of Inaction — Every Month</h2>
     <p class="ssub">Conservative estimates based on industry data for a typical HVAC company doing $500K–$2M/year.</p></div>
-    <div class="tw rv">
+    <div class="tw">
       <table>
         <thead><tr><th>Revenue Leak</th><th>Without AI System</th><th>With AI System</th><th>Monthly Recovery</th></tr></thead>
         <tbody>
@@ -222,10 +219,9 @@ footer a{color:var(--orange);text-decoration:none;}
   </div>
 </section>
 
-<!-- 3D INTERACTIVE SYSTEMS -->
 <section id="systems" class="systems bg-navy">
   <div style="padding:88px 0 0;max-width:1100px;margin:0 auto;padding-left:24px;padding-right:24px;">
-    <div class="rv"><div class="stag">How It Works</div>
+    <div ><div class="stag">How It Works</div>
     <h2 class="stitle">Three Systems. One Revenue Engine.</h2>
     <p class="ssub" style="margin-bottom:32px;">Click any node in the diagrams below to understand exactly how each system works and what it delivers for your business.</p></div>
   </div>
@@ -235,9 +231,8 @@ footer a{color:var(--orange);text-decoration:none;}
     <button class="sys-tab" onclick="switchTab('quotes',this)">💰 Quotes & Invoices</button>
   </div>
 
-  <!-- LEAD MANAGEMENT -->
   <div class="sys-panel active" id="panel-leads">
-    <div class="sys-header rv">
+    <div class="sys-header">
       <div class="sys-header-text">
         <h2>Lead Management System</h2>
         <p>Every lead that touches your business — web forms, phone calls, social messages — gets captured, qualified, and booked automatically. Nothing slips through. Ever.</p>
@@ -249,7 +244,7 @@ footer a{color:var(--orange);text-decoration:none;}
         <div class="sm"><div class="smn">14d</div><div class="sml">Nurture window</div></div>
       </div>
     </div>
-    <div class="flow-canvas-wrap rv">
+    <div class="flow-canvas-wrap">
       <span class="canvas-tip">👆 Click any node to learn more</span>
       <canvas id="c-leads" width="1060" height="420"></canvas>
       <div class="flow-legend">
@@ -262,9 +257,8 @@ footer a{color:var(--orange);text-decoration:none;}
     </div>
   </div>
 
-  <!-- ADS -->
   <div class="sys-panel" id="panel-ads">
-    <div class="sys-header rv">
+    <div class="sys-header">
       <div class="sys-header-text">
         <h2>Ads & Lead Generation System</h2>
         <p>You pay for ads. We make sure every single lead that comes from those ads is captured, followed up within 58 seconds, and tracked to ROI. No more wasted ad spend.</p>
@@ -276,7 +270,7 @@ footer a{color:var(--orange);text-decoration:none;}
         <div class="sm"><div class="smn">ROI</div><div class="sml">Full attribution tracking</div></div>
       </div>
     </div>
-    <div class="flow-canvas-wrap rv">
+    <div class="flow-canvas-wrap">
       <span class="canvas-tip">👆 Click any node to learn more</span>
       <canvas id="c-ads" width="1060" height="420"></canvas>
       <div class="flow-legend">
@@ -289,9 +283,8 @@ footer a{color:var(--orange);text-decoration:none;}
     </div>
   </div>
 
-  <!-- QUOTES & INVOICES -->
   <div class="sys-panel" id="panel-quotes">
-    <div class="sys-header rv">
+    <div class="sys-header">
       <div class="sys-header-text">
         <h2>Quote & Invoice Recovery System</h2>
         <p>Stop leaving money on the table. Every quote you send gets automatically followed up. Every invoice gets chased. This is pure recovered profit — from work you already did.</p>
@@ -303,7 +296,7 @@ footer a{color:var(--orange);text-decoration:none;}
         <div class="sm"><div class="smn">$$$</div><div class="sml">Pure recovered profit</div></div>
       </div>
     </div>
-    <div class="flow-canvas-wrap rv">
+    <div class="flow-canvas-wrap">
       <span class="canvas-tip">👆 Click any node to learn more</span>
       <canvas id="c-quotes" width="1060" height="420"></canvas>
       <div class="flow-legend">
@@ -317,15 +310,14 @@ footer a{color:var(--orange);text-decoration:none;}
   </div>
 </section>
 
-<!-- TIERS -->
 <section id="audit">
   <div class="inner">
-    <div class="rv" style="text-align:center;margin-bottom:44px;">
+    <div style="text-align:center;margin-bottom:44px;">
       <div class="stag">Pricing</div>
       <h2 class="stitle">Three Tiers. All ROI.</h2>
       <p class="ssub" style="margin:0 auto;">Start with the Safety Net. Add Gasoline when you're ready. Build Total Control when you want to own your market.</p>
     </div>
-    <div class="tier-grid rv">
+    <div class="tier-grid">
       <div class="tier">
         <div class="tier-label">Tier 1 — The Safety Net</div>
         <div class="tier-price">$1,500<span>/month</span></div>
@@ -372,17 +364,14 @@ footer a{color:var(--orange);text-decoration:none;}
   </div>
 </section>
 
-<!-- CTA -->
-<!-- VIDEO SECTION -->
 <section id="watch" style="background:var(--black);padding:88px 24px;position:relative;z-index:1;">
   <div class="inner">
-    <div class="rv" style="text-align:center;margin-bottom:44px;">
+    <div style="text-align:center;margin-bottom:44px;">
       <div class="stag">See It In Action</div>
       <h2 class="stitle">Watch How The System<br><span style="color:var(--orange)">Works In 2 Minutes</span></h2>
       <p class="ssub" style="margin:0 auto;">See the exact flow from missed call to booked appointment — and the revenue your business is losing right now.</p>
     </div>
-    <div class="rv" style="max-width:800px;margin:0 auto;">
-      <!-- YouTube Embed -->
+    <div style="max-width:800px;margin:0 auto;">
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;border:1px solid var(--border);box-shadow:0 0 60px rgba(249,115,22,0.15);">
         <iframe
           src="https://www.youtube.com/embed/EcLseL_NKyk?rel=0&modestbranding=1&color=white"
@@ -392,7 +381,6 @@ footer a{color:var(--orange);text-decoration:none;}
           allowfullscreen>
         </iframe>
       </div>
-      <!-- Below video CTA -->
       <div style="text-align:center;margin-top:28px;">
         <p style="color:var(--muted);font-size:.95rem;margin-bottom:20px;">Ready to see what this recovers for <em>your</em> business specifically?</p>
         <a href="#book" class="b1" style="display:inline-block;font-size:.95rem;padding:14px 36px;">Book My Free Revenue Audit →</a>
@@ -401,10 +389,9 @@ footer a{color:var(--orange);text-decoration:none;}
   </div>
 </section>
 
-<!-- CALENDLY BOOKING SECTION -->
 <section id="book" style="background:var(--navy);padding:88px 24px;position:relative;z-index:1;">
   <div class="inner">
-    <div class="rv" style="text-align:center;margin-bottom:44px;">
+    <div style="text-align:center;margin-bottom:44px;">
       <div class="stag">Zero Risk Pilot Offer</div>
       <h2 class="stitle">Book Your Free<br><span style="color:var(--orange)">20-Minute Revenue Audit</span></h2>
       <p class="ssub" style="margin:0 auto 12px;">Give us your last 30 days of missed calls. We book you 3 appointments in 48 hours — before you pay a single dollar.</p>
@@ -421,8 +408,7 @@ footer a{color:var(--orange);text-decoration:none;}
       </div>
     </div>
 
-    <!-- Calendly inline embed -->
-    <div class="rv" style="max-width:900px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 0 60px rgba(249,115,22,0.1);">
+    <div style="max-width:900px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 0 60px rgba(249,115,22,0.1);">
       <div
         class="calendly-inline-widget"
         data-url="https://calendly.com/justinaconnect/free-hvac-revenue-audit?hide_event_type_details=1&hide_gdpr_banner=1&background_color=080d1a&text_color=f1f5f9&primary_color=f97316"
@@ -430,25 +416,25 @@ footer a{color:var(--orange);text-decoration:none;}
       </div>
     </div>
 
-    <div class="rv" style="text-align:center;margin-top:28px;">
+    <div style="text-align:center;margin-top:28px;">
       <p style="font-size:.78rem;color:var(--muted);">🔒 Your information is never shared. No spam. No hard sell. Just your numbers.</p>
     </div>
   </div>
 </section>
 
 <section class="pilot" style="padding:60px 24px;">
-  <div class="rv" style="position:relative;">
+  <div style="position:relative;">
     <h2 style="font-size:clamp(1.4rem,3vw,2.4rem);">Still Have Questions?</h2>
     <p style="max-width:480px;">Email us directly and we will get back to you within a few hours.</p>
-    <a href="mailto:hello@aljoai.com" class="b1" style="display:inline-block;font-size:.95rem;padding:14px 32px;">hello@aljoai.com</a>
+    <a href="mailto:support@aljoai.com" class="b1" style="display:inline-block;font-size:.95rem;padding:14px 32px;">support@aljoai.com</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 HVAC-AI — A division of <a href="https://aljoai.com">ALJOAI</a> &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#acc4c9c0c0c3eccdc0c6c3cdc582cfc3c1"><span class="__cf_email__" data-cfemail="c1a9a4adadae81a0adabaea0a8efa2aeac">[email&#160;protected]</span></a> &nbsp;·&nbsp; Serving Dallas · Houston · Phoenix · Sydney · London</p>
+  <p>© 2026 HVAC-AI — A division of <a href="https://aljoai.com">ALJOAI</a> &nbsp;·&nbsp; <a href="mailto:support@aljoai.com">support@aljoai.com</a> &nbsp;·&nbsp; Serving Dallas · Houston · Phoenix · Sydney · London</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ── HERO PARTICLES ── */
 (function(){
   var c=document.getElementById('hero-c'),x=c.getContext('2d'),W,H,p=[];
@@ -495,7 +481,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
   }
   resize();
 
-  // Project 3D to 2D isometric
   function project(x3, y3, z3) {
     var cosA = Math.cos(angle), sinA = Math.sin(angle);
     var rx = x3 * cosA - y3 * sinA;
@@ -505,18 +490,15 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
     return {x: sx, y: sy};
   }
 
-  // Map node layout positions to 3D coords
   function nodePos(n) {
     return project(n.x * (W * 0.0045), n.y * (H * 0.004), n.z || 0);
   }
 
-  // Pulse particles along connections
   function addPulse(fromIdx, toIdx, col) {
     pulses.push({from: fromIdx, to: toIdx, t: 0, col: col || '#f97316', speed: 0.008 + Math.random()*0.006});
   }
 
-  // Auto-generate pulses
-  setInterval(function() {
+  var pulseTimer = setInterval(function() {
     connections.forEach(function(conn) {
       if(Math.random() > 0.4) addPulse(conn[0], conn[1], conn[2] || '#f97316');
     });
@@ -525,22 +507,18 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    // Draw connection lines
     connections.forEach(function(conn) {
       var from = nodePos(nodes[conn[0]]);
       var to = nodePos(nodes[conn[1]]);
       ctx.beginPath();
       ctx.moveTo(from.x, from.y);
       ctx.lineTo(to.x, to.y);
-      ctx.strokeStyle = conn[2] ? conn[2].replace(')', ', 0.25)').replace('rgb', 'rgba').replace('#', '') : 'rgba(249,115,22,0.2)';
-      // simpler
       ctx.strokeStyle = 'rgba(249,115,22,0.18)';
       ctx.lineWidth = 1.5;
       ctx.setLineDash([5, 8]);
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Arrow head
       var dx = to.x - from.x, dy = to.y - from.y;
       var len = Math.sqrt(dx*dx+dy*dy);
       if(len < 1) return;
@@ -554,7 +532,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       ctx.fill();
     });
 
-    // Draw pulses
     pulses = pulses.filter(function(p) { return p.t < 1; });
     pulses.forEach(function(p) {
       p.t += p.speed;
@@ -573,20 +550,17 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       ctx.globalAlpha = 1;
     });
 
-    // Draw nodes
     nodes.forEach(function(n, i) {
       var pos = nodePos(n);
       var isHov = hovered === i;
       var isSel = selected === i;
       var r = isHov || isSel ? 36 : 30;
 
-      // 3D shadow/base
       ctx.beginPath();
       ctx.ellipse(pos.x, pos.y + r * 0.35, r * 0.9, r * 0.22, 0, 0, Math.PI*2);
       ctx.fillStyle = 'rgba(0,0,0,0.3)';
       ctx.fill();
 
-      // Glow
       if(isHov || isSel) {
         var glow = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, r * 1.8);
         glow.addColorStop(0, n.color + '44');
@@ -597,7 +571,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
         ctx.fill();
       }
 
-      // Node body — 3D sphere effect
       var grad = ctx.createRadialGradient(pos.x - r*0.3, pos.y - r*0.3, r*0.1, pos.x, pos.y, r);
       grad.addColorStop(0, lighten(n.color, 0.4));
       grad.addColorStop(0.5, n.color);
@@ -607,27 +580,23 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
       ctx.fillStyle = grad;
       ctx.fill();
 
-      // Border
       ctx.beginPath();
       ctx.arc(pos.x, pos.y, r, 0, Math.PI*2);
       ctx.strokeStyle = isSel ? '#fff' : isHov ? '#fff' : n.color;
       ctx.lineWidth = isSel ? 3 : isHov ? 2 : 1.5;
       ctx.stroke();
 
-      // Shine highlight
       ctx.beginPath();
       ctx.arc(pos.x - r*0.28, pos.y - r*0.28, r*0.3, 0, Math.PI*2);
       ctx.fillStyle = 'rgba(255,255,255,0.18)';
       ctx.fill();
 
-      // Icon
       ctx.fillStyle = '#fff';
       ctx.font = (isHov||isSel ? '18px' : '15px') + ' Arial';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(n.icon, pos.x, pos.y - 5);
 
-      // Label below node
       ctx.font = 'bold 10px Segoe UI, sans-serif';
       ctx.fillStyle = isHov||isSel ? '#fff' : '#94a3b8';
       ctx.textAlign = 'center';
@@ -643,7 +612,6 @@ function Flow3D(canvasId, nodes, connections, infoId, getInfo) {
   }
   draw();
 
-  // Mouse interaction
   c.addEventListener('mousemove', function(e) {
     var rect = c.getBoundingClientRect();
     var mx = e.clientX - rect.left, my = e.clientY - rect.top;
@@ -685,7 +653,7 @@ function darken(hex, amt) {
   return 'rgb('+r+','+g+','+b+')';
 }
 
-/* ── LEAD MANAGEMENT FLOW ── */
+/* ── DATA DEFINITIONS ── */
 var leadNodes = [
   {x:-95, y:20, z:2, color:'#f97316', icon:'📞', label:'Missed\nCall'},
   {x:-55, y:-30, z:1, color:'#f97316', icon:'📝', label:'Web\nForm'},
@@ -698,26 +666,20 @@ var leadNodes = [
   {x:170, y:-30, z:3, color:'#22c55e', icon:'✅', label:'Job\nBooked'},
   {x:185, y:60, z:1, color:'#22c55e', icon:'💰', label:'Revenue\nWon'},
 ];
-var leadConns = [
-  [0,4],[1,4],[2,4],[3,4],
-  [4,5],[4,6],
-  [5,6],[5,7],
-  [6,8],[7,8],[7,9],[8,9]
-];
+var leadConns = [[0,4],[1,4],[2,4],[3,4],[4,5],[4,6],[5,6],[5,7],[6,8],[7,8],[7,9],[8,9]];
 var leadInfo = [
-  '<strong>📞 Missed Call Trigger</strong><br>Your phone rings after hours. Nobody picks up. Normally this lead is gone forever. With our system the AI detects the missed call and responds via SMS within 58 seconds — before they dial the next number.',
-  '<strong>📝 Web Form Trigger</strong><br>A prospect fills out your contact form at 11pm. Instead of sitting in your inbox until Monday morning, the AI responds instantly with a personalised message and starts a qualification conversation.',
-  '<strong>💬 Social DM Trigger</strong><br>Someone messages your Facebook or Instagram page asking about pricing or availability. The AI picks it up immediately and starts qualifying them — even while you sleep.',
-  '<strong>📣 Ad Lead Trigger</strong><br>A Google or Facebook ad generates a click and form fill. The AI responds within 58 seconds — critical because 80% of leads go cold if you wait more than 5 minutes.',
-  '<strong>🤖 AI Capture Engine</strong><br>All four entry points feed into one central AI engine. It logs every lead, creates a CRM record automatically, and starts the engagement sequence. Zero leads ever slip through.',
-  '<strong>🎯 AI Qualification</strong><br>The AI asks 3 smart questions via SMS: What service do you need? When do you need it? What is your address? This qualifies the lead without you lifting a finger — only real buyers proceed.',
-  '<strong>📅 AI Booking</strong><br>Qualified leads receive a direct booking link. The AI matches their availability to your calendar and confirms the appointment automatically. You wake up to booked jobs.',
-  '<strong>📬 14-Day Nurture</strong><br>Leads that are not ready yet go into a 14-day sequence. Day 1: helpful tip. Day 7: customer testimonial. Day 14: special offer. Most of these leads eventually convert — without you doing anything.',
-  '<strong>✅ Job Booked</strong><br>The appointment lands in your calendar with the customer name, phone number, service needed, and address. Your technician has everything they need before they arrive on site.',
-  '<strong>💰 Revenue Won</strong><br>The job is completed, the invoice is generated, and the customer enters your reputation management sequence — automatically requesting a Google review after the work is done.',
+  '<strong>📞 Missed Call Trigger</strong><br>Your phone rings after hours. AI detects it and responds via SMS within 58 seconds.',
+  '<strong>📝 Web Form Trigger</strong><br>Late-night form fills get instant AI engagement instead of sitting until Monday.',
+  '<strong>💬 Social DM Trigger</strong><br>AI monitors Facebook/Instagram DMs to qualify prospects instantly.',
+  '<strong>📣 Ad Lead Trigger</strong><br>AI captures ad leads within 60 seconds, stopping them from calling competitors.',
+  '<strong>🤖 AI Capture Engine</strong><br>Central hub that logs every lead into your CRM automatically.',
+  '<strong>🎯 AI Qualification</strong><br>AI asks smart questions via SMS to filter real buyers from tire-kickers.',
+  '<strong>📅 AI Booking</strong><br>Qualified leads get a link to your calendar for instant appointment booking.',
+  '<strong>📬 14-Day Nurture</strong><br>Automated follow-up sequence for leads not yet ready to commit.',
+  '<strong>✅ Job Booked</strong><br>Technicians receive job details automatically in their schedule.',
+  '<strong>💰 Revenue Won</strong><br>Job completion triggers payment tracking and automated review requests.',
 ];
 
-/* ── ADS FLOW ── */
 var adsNodes = [
   {x:-100, y:30, z:2, color:'#f97316', icon:'🔍', label:'Google\nAds'},
   {x:-60, y:-20, z:1, color:'#f97316', icon:'📘', label:'Facebook\nAds'},
@@ -729,25 +691,19 @@ var adsNodes = [
   {x:155, y:-20, z:1, color:'#8b5cf6', icon:'🔁', label:'Retarget\nLost'},
   {x:175, y:50, z:2, color:'#22c55e', icon:'📈', label:'ROI\nReport'},
 ];
-var adsConns = [
-  [0,3],[1,3],[2,3],
-  [3,4],[4,5],
-  [5,6],[5,7],
-  [6,8],[7,4],[6,8]
-];
+var adsConns = [[0,3],[1,3],[2,3],[3,4],[4,5],[5,6],[5,7],[6,8],[7,4]];
 var adsInfo = [
-  '<strong>🔍 Google Ads</strong><br>We build and manage your Google Search campaigns targeting high-intent keywords like "AC repair Dallas" and "HVAC emergency near me". These are people actively looking for a technician right now.',
-  '<strong>📘 Facebook Ads</strong><br>Facebook campaigns target homeowners in your service area with seasonal messaging — "Is your AC ready for summer?" — building brand awareness and capturing leads before they need emergency service.',
-  '<strong>📸 Instagram Ads</strong><br>Visual campaigns showing before/after work, customer testimonials, and seasonal promotions. Instagram reaches younger homeowners who will be your customers for the next 20 years.',
-  '<strong>📊 Unified Ad Dashboard</strong><br>Every ad from every platform feeds into one dashboard. You see exactly which ads are generating calls, which are generating forms, and what each lead costs you — in real time.',
-  '<strong>🤖 AI Instant Response</strong><br>Every lead from every ad platform gets an AI response within 58 seconds. This alone triples your conversion rate because 80% of competitors take more than 5 minutes to respond.',
-  '<strong>🎯 Lead Scoring</strong><br>The AI scores every lead by urgency, job size, and location. Emergency AC calls in peak season get priority routing to your on-call technician. Routine maintenance leads go into the standard booking flow.',
-  '<strong>📅 Job Booked</strong><br>High-scoring leads get booked directly. The entire process from ad click to confirmed appointment can happen in under 4 minutes — automatically, with zero manual work from your team.',
-  '<strong>🔁 Retargeting Lost Leads</strong><br>Leads that clicked your ad but did not convert get automatically added to a retargeting audience. We serve them follow-up ads for 30 days — keeping your brand top of mind until they are ready.',
-  '<strong>📈 Full ROI Attribution</strong><br>Every job is tracked back to the exact ad that generated it. You know precisely which campaign is delivering $400 AC tune-ups and which is delivering $4,000 system replacements — and we optimise accordingly.',
+  '<strong>🔍 Google Ads</strong><br>Targeting high-intent search terms for emergency HVAC services.',
+  '<strong>📘 Facebook Ads</strong><br>Awareness campaigns targeting homeowners in your specific area.',
+  '<strong>📸 Instagram Ads</strong><br>Visual campaigns showing results and trust-building testimonials.',
+  '<strong>📊 Ad Dashboard</strong><br>Live view of which ads are actually turning into dollars.',
+  '<strong>🤖 AI Response</strong><br>Triples conversion by responding to every ad lead in under 60 seconds.',
+  '<strong>🎯 Lead Scoring</strong><br>Prioritises emergency installs over routine maintenance calls.',
+  '<strong>📅 Job Booked</strong><br>Automated flow from ad click to confirmed appointment.',
+  '<strong>🔁 Retargeting</strong><br>Automatically following up with prospects who didn\'t book the first time.',
+  '<strong>📈 ROI Report</strong><br>Know exactly which ad generated which system replacement.',
 ];
 
-/* ── QUOTES & INVOICES FLOW ── */
 var quoteNodes = [
   {x:-90, y:20, z:2, color:'#f97316', icon:'📋', label:'Quote\nSent'},
   {x:-45, y:-15, z:1, color:'#f97316', icon:'🧾', label:'Invoice\nSent'},
@@ -759,22 +715,17 @@ var quoteNodes = [
   {x:175, y:-10, z:2, color:'#22c55e', icon:'💰', label:'Payment\nReceived'},
   {x:190, y:45, z:1, color:'#22c55e', icon:'⭐', label:'Review\nRequest'},
 ];
-var quoteConns = [
-  [0,2],[1,2],
-  [2,3],[3,4],[4,5],
-  [5,6],[5,7],
-  [6,7],[7,8]
-];
+var quoteConns = [[0,2],[1,2],[2,3],[3,4],[4,5],[5,6],[5,7],[6,7],[7,8]];
 var quotesInfo = [
-  '<strong>📋 Quote Sent</strong><br>The moment you send a quote in your system, our AI logs it and starts a follow-up timer. No more quotes falling through the cracks. Every single one gets tracked from send to close.',
-  '<strong>🧾 Invoice Sent</strong><br>When an invoice is generated and sent, the AI begins monitoring for payment. If payment is not received within your specified window, the automated chase sequence begins automatically.',
-  '<strong>⏱ Day 1 Auto Follow-Up</strong><br>One day after sending, the customer receives a friendly personalised message: "Hi [Name] — just checking you received the quote for your [service]. Happy to answer any questions — shall we go ahead?" Simple. Professional. Automatic.',
-  '<strong>📬 Day 3 Chase</strong><br>No reply? Day 3 sends a different angle: "Hi [Name] — wanted to share that we have availability in your area next week. We would love to get this sorted before the weather turns. Quote still valid." Creates soft urgency.',
-  '<strong>📱 Day 7 SMS Push</strong><br>Still no response? The AI switches channels and sends an SMS — because people read texts faster than emails. "Hi [Name], Lawrence here from [Company]. Your quote expires soon. Reply YES to confirm or call us to adjust anything."',
-  '<strong>🚨 Day 14 Escalation</strong><br>If still no response after 14 days, the AI flags the lead for a personal call from you or your team. At this point it is worth 2 minutes of your time — these are often large jobs where the customer just needs reassurance.',
-  '<strong>✅ Quote Accepted</strong><br>The moment the customer confirms, the job goes straight into your calendar, a deposit request is sent if applicable, and the customer gets a confirmation with your tech details. Frictionless.',
-  '<strong>💰 Payment Received</strong><br>When payment lands, the system logs it, marks the job as complete, updates your pipeline, and triggers the next step. Your cash flow dashboard updates in real time.',
-  '<strong>⭐ Review Request</strong><br>24 hours after payment, the AI sends a personalised review request: "Hi [Name], thank you for trusting us with your [service]. If we did a great job, a quick Google review means the world to us — link below." This compounds your reputation month after month.',
+  '<strong>📋 Quote Sent</strong><br>System logs the quote and starts the automated follow-up timer.',
+  '<strong>🧾 Invoice Sent</strong><br>Automatically monitors payment status to trigger chase sequences.',
+  '<strong>⏱ Day 1 Follow-Up</strong><br>Friendly personalised nudge to confirm they received the quote.',
+  '<strong>📬 Day 3 Chase</strong><br>Soft urgency follow-up mentioning current schedule availability.',
+  '<strong>📱 Day 7 SMS</strong><br>High-visibility text message to recover potentially lost quotes.',
+  '<strong>🚨 Day 14 Alert</strong><br>Flags large unsold quotes for a manual call from your team.',
+  '<strong>✅ Accepted</strong><br>Triggers job scheduling and deposit collection automatically.',
+  '<strong>💰 Payment</strong><br>Real-time cash flow update once the customer pays via the link.',
+  '<strong>⭐ Review</strong><br>Automated request for a Google review 24h after job completion.',
 ];
 
 /* ── INIT ALL FLOWS ── */
@@ -788,14 +739,19 @@ setTimeout(function() {
 function switchTab(name, btn) {
   document.querySelectorAll('.sys-panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.sys-tab').forEach(function(t){t.classList.remove('active');});
-  document.getElementById('panel-'+name).classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
   btn.classList.add('active');
-  // Re-init canvas for that panel
+  
   setTimeout(function() {
-    if(name==='ads') Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i]||''; });
-    if(name==='quotes') Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i]||''; });
-  }, 100);
+    if(name === 'leads') {
+        Flow3D('c-leads', leadNodes, leadConns, 'info-leads', function(i){ return leadInfo[i]; });
+    } else if(name === 'ads') {
+        Flow3D('c-ads', adsNodes, adsConns, 'info-ads', function(i){ return adsInfo[i]; });
+    } else if(name === 'quotes') {
+        Flow3D('c-quotes', quoteNodes, quoteConns, 'info-quotes', function(i){ return quotesInfo[i]; });
+    }
+  }, 50);
 }
-
-/* ── SCROLL REVEAL ── */
-var obs = new IntersectionObserve
+</script>
+</body>
+</html>
